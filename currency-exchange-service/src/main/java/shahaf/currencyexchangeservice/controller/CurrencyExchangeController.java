@@ -1,31 +1,24 @@
 package shahaf.currencyexchangeservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import shahaf.currencyexchangeservice.dto.CurrencyExchange;
-import shahaf.currencyexchangeservice.dto.EnvironmentInfo;
-
-import java.math.BigDecimal;
+import org.springframework.web.bind.annotation.*;
+import shahaf.currencyexchangeservice.models.CurrencyExchange;
+import shahaf.currencyexchangeservice.service.CurrencyExchangeService;
 
 @RestController
 @RequestMapping("/currency-exchange")
 public class CurrencyExchangeController {
 
     @Autowired
-    Environment environment;
+    CurrencyExchangeService currencyExchangeService;
 
-    @GetMapping("/from/{from}/to/{to}")
-    public CurrencyExchange retrieveExchangeValue(
-            @PathVariable String from,
-            @PathVariable String to) {
-        return new CurrencyExchange(
-                1L, from, to, BigDecimal.valueOf(50),
-                new EnvironmentInfo(environment.getProperty("local.server.port"))
-        );
+    @PostMapping
+    public CurrencyExchange saveExchangeValue(@RequestBody CurrencyExchange currencyExchange) {
+        return currencyExchangeService.saveExchangeValue(currencyExchange);
     }
 
+    @GetMapping("/from/{from}/to/{to}")
+    public CurrencyExchange getExchangeValue(@PathVariable String from, @PathVariable String to) {
+        return currencyExchangeService.getExchangeValueByFromAndTo(from, to);
+    }
 }
