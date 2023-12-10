@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import shahaf.currencyexchangeservice.exception.NotFoundException;
-import shahaf.currencyexchangeservice.models.CurrencyExchange;
+import shahaf.currencyexchangeservice.model.CurrencyExchange;
 import shahaf.currencyexchangeservice.reposetory.CurrencyExchangeRepository;
 
 @Service

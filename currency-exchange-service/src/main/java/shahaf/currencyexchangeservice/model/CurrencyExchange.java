@@ -1,9 +1,6 @@
-package shahaf.currencyexchangeservice.models;
+package shahaf.currencyexchangeservice.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,4 +21,6 @@ public class CurrencyExchange {
     private String to;
     private BigDecimal conversionMultiple;
     private String environment;
+    private String host;
+    private String version;
 }
