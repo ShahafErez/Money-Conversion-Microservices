@@ -4,7 +4,7 @@ import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
-import shahaf.currencyexchangeservice.models.CurrencyExchange;
+import shahaf.currencyexchangeservice.model.CurrencyExchange;
 import shahaf.currencyexchangeservice.service.CurrencyExchangeService;
 
 @RestController
