@@ -1,4 +1,4 @@
-package shahaf.limitsservice.bean;
+package shahaf.limitsservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
